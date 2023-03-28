@@ -1,4 +1,6 @@
-<template lang="pug"></template>
+<template lang="pug">
+h2 Reg
+</template>
 
 <script lang="ts" setup></script>
 
