@@ -5,18 +5,18 @@
     button.button1 Sign up with Google
     .continue
       p Or continue with
-    form
+    form.form-style1
       .email
-        label
+        label Email Address
         input
       .name
-        label
+        label Name
         input
       .password
-        label
+        label Password
         input
       .role
-        label
+        label User role
         select
     button.confirm-sing-up.button1 Sign up
     a(href="#") Already have an account? Log in
@@ -50,14 +50,7 @@
       justify-content: center;
       color: var(--trout);
     }
-    form {
-      input,
-      select {
-        width: 100%;
-        height: 38px;
-        margin-bottom: 24px;
-      }
-    }
+
     .continue {
       p {
         text-align: center;
