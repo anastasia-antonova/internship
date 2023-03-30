@@ -1,30 +1,33 @@
 <template lang="pug">
 .all-content
+  img.logo(src="@/assets/image/academyLogo.svg")
+
   .sing-up
-    h2 Sing up
-    button.button1 Sign up with Google
+    h2.title1 Log in
+    button.button1
+      span Log in with Google
     .continue
-      p Or continue with
+      p.text2 Or continue with
     form.form-style1
       .email
         label Email Address
         input
-      .name
-        label Name
-        input
       .password
         label Password
         input
-      .role
-        label User role
-        select
     button.confirm-sing-up.button1 Sign up
-    a(href="#") Already have an account? Log in
+    p.link1 New user?
+      a(href="#") Sign up
 </template>
 
 <script lang="ts" setup></script>
 
 <style scoped lang="scss">
+.logo {
+  position: absolute;
+  left: 52px;
+  top: 30px;
+}
 .all-content {
   display: flex;
   justify-content: center;
@@ -33,44 +36,87 @@
   background-image: url("@/assets/image/RegistrationBG.png");
   background-size: contain;
   background-repeat: no-repeat;
+  position: relative;
 
   .sing-up {
     min-width: 350px;
-    h2 {
-      font-family: Inter;
-      font-style: normal;
-      font-size: 46px;
-      line-height: 56px;
-      font-weight: 600;
-      text-align: center;
-      color: var(--bright-gray);
+
+    button {
+      &:last-child {
+        margin-bottom: 16px;
+        margin-top: 74px;
+      }
+      span {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: var(--athens-gray);
+        position: relative;
+
+        &:before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          background-image: url("@/assets/image/google1.svg");
+          background-size: contain;
+          background-repeat: no-repeat;
+          position: absolute;
+          left: -21px;
+        }
+      }
     }
-    a {
+
+    p {
+      font-family: "Inter";
+      font-style: normal;
       display: flex;
       justify-content: center;
       color: var(--trout);
+      line-height: 20px;
+      font-weight: 400;
+    }
+    .link1 {
+      font-size: 13px;
+
+      a {
+        color: var(--trout);
+        margin-left: 7px;
+        font-weight: 500;
+      }
     }
 
     .continue {
-      p {
-        text-align: center;
-        color: var(--trout);
+      .text2 {
+        font-size: 14px;
+        position: relative;
+        margin-top: 30px;
+
+        &:before {
+          content: "";
+          width: 112px;
+          height: 2px;
+          background-image: url("@/assets/image/divider.svg");
+          background-size: auto;
+          background-repeat: no-repeat;
+          top: 9px;
+          left: 1px;
+          position: absolute;
+        }
+
+        &:after {
+          content: "";
+          width: 112px;
+          height: 2px;
+          background-image: url("@/assets/image/divider.svg");
+          background-size: auto;
+          background-repeat: no-repeat;
+          top: 9px;
+          right: 1px;
+          position: absolute;
+        }
       }
-    }
-    .button1 {
-      min-width: 350px;
-      min-height: 46px;
-      background-color: var(--bright-gray);
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      font-family: Inter;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 14px;
-      line-height: 17px;
-      color: var(--athens-gray);
     }
   }
 }

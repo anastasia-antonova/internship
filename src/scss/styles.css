@@ -335,6 +335,67 @@ template {
   display: none;
 }
 
+@font-face {
+  font-family: "Inter";
+  src: url("@/assets/fonts/Inter/Inter-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("@/assets/fonts/Inter/Inter-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("@/assets/fonts/Inter/Inter-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("@/assets/fonts/Inter/Inter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("@/assets/fonts/Inter/Inter-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("@/assets/fonts/Inter/Inter-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("@/assets/fonts/Inter/Inter-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --font-inter: "Inter";
+}
+
+:root {
+  --text-color: #030303;
+  --background-color: #c3c3c3;
+  --bright-gray: #3E4552;
+  --athens-gray: #E9EAEC;
+  --trout: #515563;
+}
+
 html, body, #app {
   height: 100%;
 }
@@ -343,6 +404,9 @@ body.no-scroll {
   overflow: hidden;
 }
 
+.form-style1 {
+  margin-top: 30px;
+}
 .form-style1 input,
 .form-style1 select {
   width: 100%;
@@ -350,6 +414,9 @@ body.no-scroll {
   margin-bottom: 24px;
   border: none;
   border-radius: 4px;
+  margin-top: 6px;
+  background-color: var(--athens-gray);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 .form-style1 label {
   font-family: Inter;
@@ -358,7 +425,38 @@ body.no-scroll {
   font-size: 14px;
   line-height: 17px;
   color: var(--bright-gray);
-  margin-bottom: 6px;
+}
+
+.title1 {
+  font-family: Inter;
+  font-style: normal;
+  font-size: 46px;
+  line-height: 56px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--bright-gray);
+  margin-top: 78px;
+}
+
+.button1 {
+  min-width: 350px;
+  min-height: 46px;
+  background-color: var(--bright-gray);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--athens-gray);
+}
+
+.confirm-sing-up {
+  margin-top: 74px;
+  margin-bottom: 16px;
 }
 
 /*# sourceMappingURL=styles.css.map */
