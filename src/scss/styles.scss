@@ -1,4 +1,9 @@
-@import "normalize";
+@import "core/_normalize";
+@import "core/_reset";
+@import "core/_fonts";
+@import "core/_colors";
+@import "core/_media";
+
 
 html, body, #app {
   height: 100%;
@@ -6,4 +11,287 @@ html, body, #app {
 
 body.no-scroll {
   overflow: hidden;
+}
+
+.logo {
+  position: absolute;
+  left: 40px;
+  top: 30px;
+
+  @include media_tablet {
+    width: 164px;
+    left: 302px;
+  }
+
+  @include media_mobile {
+    top: 17px;
+    left: 12px;
+  }
+}
+
+.form-style1 {
+
+  margin-top: 30px;
+
+  @include media_mobile {
+    margin-top: 16px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    height: 38px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 6px;
+    background-color: var(--athens-gray);
+    box-shadow: (0px 2px 4px rgba(0, 0, 0, 0.25));
+    padding-left: 12px;
+    box-sizing: border-box;
+
+    @include media_mobile {
+      height: 32px;
+    }
+
+
+
+    &::placeholder {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: var(--manatee);
+
+      @include media_mobile {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .input-margin {
+    margin-bottom: 24px;
+  }
+  .input-margin-6 {
+    margin-bottom: 6px;
+  }
+  label {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--bright-gray);
+
+    @include media_mobile {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+}
+
+.title1 {
+  font-family: Inter;
+  font-style: normal;
+  font-size: 46px;
+  line-height: 56px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--bright-gray);
+  margin-bottom: 30px;
+
+  @include media_tablet {
+
+  }
+  @include media_mobile {
+    text-align: inherit;
+    font-size: 32px;
+    margin-bottom: 16px;
+    line-height: 39px;
+  }
+}
+
+.button1 {
+  width: 100%;
+  min-height: 46px;
+  background-color: var(--bright-gray);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--athens-gray);
+
+
+  @include media_mobile {
+    min-height: 38px;
+  }
+}
+
+.all-content {
+  display: flex;
+  justify-content: center;
+  min-width: 1440px;
+  min-height: 1024px;
+  background-image: url("@/assets/image/RegistrationBG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+
+
+  @include media_tablet {
+    min-width: 768px;
+    background-image: url("@/assets/image/RegistrationBG.png");
+  }
+
+  @include media_mobile {
+    min-width: 375px;
+    min-height: 668px;
+    background-image: url("@/assets/image/RegistrationBG.png");
+  }
+
+  .sing-up {
+    background-image: url("@/assets/image/Registration_form1.png");
+    padding: 170px 117px 0 117px;
+    background-size: cover;
+    max-width: 584px;
+    min-width: 350px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+
+    @include media_mobile {
+      padding: 75px 16px 24px;
+      width: 100%;
+      box-sizing: border-box;
+  }
+
+    @include media_tablet {
+      box-sizing: inherit;
+    }
+
+
+    button {
+      box-sizing: border-box;
+
+      span {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: var(--athens-gray);
+        max-width: 142px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        @include media_mobile {
+          font-size: 12px;
+          line-height: 15px;
+        }
+
+        &:before {
+          content: "";
+          width: 16px;
+          height: 16px;
+          background-image: url("@/assets/image/google1.svg");
+          background-size: contain;
+          background-repeat: no-repeat;
+          position: absolute;
+          left: -17px;
+        }
+
+      }
+    }
+
+    p {
+      font-family: "Inter";
+      font-style: normal;
+      display: flex;
+      justify-content: center;
+      color: var(--trout);
+      line-height: 20px;
+      font-weight: 400;
+    }
+
+    .link1 {
+      font-size: 13px;
+
+      a {
+        color: var(--trout);
+        margin-left: 7px;
+        font-weight: 500;
+
+        @include media_mobile {
+          color: var(--athens-gray);
+        }
+      }
+      @include media_mobile {
+        color: var(--athens-gray);
+
+      }
+    }
+
+    .confirm-sing-up {
+      margin-top: 74px;
+      margin-bottom: 16px;
+
+      @include media_mobile {
+        font-size: 12px;
+        line-height: 15px;
+      }
+    }
+    .continue {
+      .text2 {
+        font-size: 14px;
+        position: relative;
+        margin-top: 30px;
+
+        @include media_mobile {
+          margin-top: 16px;
+        }
+
+        &:before {
+          content: "";
+          width: 112px;
+          height: 2px;
+          background-image: url("@/assets/image/divider.svg");
+          background-size: auto;
+          background-repeat: no-repeat;
+          top: 9px;
+          left: 1px;
+          position: absolute;
+        }
+
+        &:after {
+          content: "";
+          width: 112px;
+          height: 2px;
+          background-image: url("@/assets/image/divider.svg");
+          background-size: auto;
+          background-repeat: no-repeat;
+          top: 9px;
+          right: 1px;
+          position: absolute;
+        }
+      }
+    }
+  }
+}
+
+.link2 {
+  text-decoration: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--trout);
+
+  @include media_mobile {
+    font-size: 12px;
+  }
 }

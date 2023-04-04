@@ -27,15 +27,6 @@ module.exports = defineConfig({
       exclude: [/index\.html$/],
     },
   },
-  css: {
-    loaderOptions: {
-      sass: {
-        additionalData: `
-         @import '~@/scss/_colors.scss';
-         `,
-      },
-    },
-  },
   configureWebpack(config) {
     config.plugins = [...config.plugins, ...plugins];
   },
