@@ -9,19 +9,18 @@
     .continue
       p.text2 Or continue with
     form.form-style1
-      .email
+      .email.input-margin
         label Email Address
         input(placeholder="Type your email address")
-      .name
+      .name.input-margin
         label Name
         input(placeholder="Type your name")
-      .password
+      .password.input-margin
         label Password
         input(placeholder="Type your password")
-      .role
+      .role.input-margin
         label User role
         select
-          option
     button.confirm-sing-up.button1 Sign up
     p.link1 Already have an account?
       a(href="#") Log in
@@ -34,19 +33,27 @@
 
 .all-content {
   .sing-up {
-    .button-padding {
-      padding-left: 124px;
-    }
-    .title1 {
-      @include media_tablet {
-        margin-top: 116px;
+    .form-style1 {
+      .role {
+        position: relative;
+        &:after {
+          content: "";
+          width: 10px;
+          height: 6px;
+          top: 35px;
+          left: 337px;
+          position: absolute;
+          background-image: url("@/assets/image/arraw.svg");
+          background-repeat: no-repeat;
+        }
       }
     }
     .link1 {
-      @include media_mobile {
-      }
+      margin-top: 16px;
     }
-
+    .button-padding {
+      padding-left: 124px;
+    }
     .confirm-sing-up {
       @include media_mobile {
         margin-top: 41px;

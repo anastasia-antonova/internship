@@ -9,10 +9,10 @@
     .continue
       p.text2 Or continue with
     form.form-style1
-      .email
+      .email.input-margin
         label Email Address
         input(placeholder="Type your email address")
-      .password
+      .password.input-margin-6
         label Password
         input(placeholder="Type your password")
       a.link2(href="#") Forgot your password?
@@ -28,22 +28,26 @@
 
 .all-content {
   .sing-up {
-    .button-padding {
-      padding-left: 124px;
+    padding-top: 209px;
+
+    @include media_mobile {
+      padding-top: 76px;
     }
-    .title1 {
+
+    .confirm-sing-up {
       @include media_tablet {
-        margin-top: 175px;
+        margin-top: 74px;
       }
+    }
+
+    .button-padding {
+      padding-left: 116px;
     }
     .link1 {
       @include media_mobile {
         color: var(--athens-gray);
         margin-bottom: 23px;
       }
-    }
-
-    .confirm-sing-up {
     }
   }
 }
