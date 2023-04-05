@@ -28,8 +28,6 @@
 
 .all-content {
   .sing-up {
-    padding-top: 209px;
-
     @include media_mobile {
       padding-top: 76px;
     }
