@@ -9,35 +9,48 @@
     .continue
       p.text2 Or continue with
     form.form-style1(@submit.prevent="")
-      .email.input-margin
+      .form-group.email.input-margin(
+        :class="{ invalid: v$.email.$dirty && v$.email.$invalid }"
+      )
         label Email Address
         input(
           placeholder="Type your email address",
           v-model="state.email",
-          @input="v$.email.$touch()",
-          :class="{ invalid: (v$.email.$dirty && !v$.email.required) || (v$.email.$dirty && !v$.email.email) }"
+          @input="v$.email.$touch()"
         )
-        span.text-helper(v-if="v$.email.$dirty && v$.email.$invalid") Поле не должно быть пустим
-        span.text-helper(v-else-if="v$.email.$dirty && !v$.email.email") введите корректний емейл
-      .name.input-margin
+        span.text-helper(v-if="v$.email.required.$invalid") Поле не должно быть пустим
+        span.text-helper(v-else-if="v$.email.email.$invalid") введите корректний емейл
+      .form-group.name.input-margin(
+        :class="{ invalid: v$.name.$dirty && v$.name.$invalid }"
+      )
         label Name
         input(
           placeholder="Type your name",
           v-model="state.name",
-          @input="v$.name.$touch()",
-          :class="{ invalid: v$.name.$dirty && !v$.name.required }"
+          @input="v$.name.$touch()"
         )
-      .password.input-margin
+        span.text-helper(v-if="v$.name.required.$invalid") Поле не должно быть пустим
+        span.text-helper(v-else-if="v$.name.nameRegex.$invalid") not number
+      .form-group.password.input-margin(
+        :class="{ invalid: v$.password.$dirty && v$.password.$invalid }"
+      )
         label Password
-        input(placeholder="Type your password")
-      .role.input-margin
+        input(
+          placeholder="Type your password",
+          v-model="state.password",
+          @input="v$.password.$touch()"
+        )
+        span.text-helper(v-if="v$.password.required.$invalid") Поле не должно быть пустим
+        span.text-helper(v-else-if="v$.password.passwordRegex.$invalid") регех
+      .form-group.role.input-margin
         label User role {{ state.role }}
         select(v-model="state.role")
           option(value="1") 1
           option(value="2") 2
           option(value="3") 3
           option(value="4") 4
-    button.confirm-sing-up.button1 Sign up
+          span.text-helper(v-if="v$.email.required.$invalid") Поле не должно быть пустим
+    button.confirm-sing-up.button1(@click="asasfsaf()") Sign up
     p.link1 Already have an account?
       a(href="#") Log in
 </template>
@@ -46,16 +59,28 @@
 import { reactive, ref } from "vue";
 import { useVuelidate } from "@vuelidate/core";
 import { required, email } from "@vuelidate/validators";
+
 const state = reactive({
   email: "",
   name: "",
   password: "",
   role: "",
 });
+
+const passwordRegex = (value: string) => {
+  const regex = /^(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
+  return value.match(regex);
+};
+
+const nameRegex = (value: string) => {
+  const regex = /^[^0-9]*$/;
+  return value.match(regex);
+};
+
 const rules = {
-  email: { required },
-  name: { required },
-  password: { required },
+  email: { required, email },
+  name: { required, nameRegex },
+  password: { required, passwordRegex },
   role: { required },
 };
 const v$ = ref(useVuelidate(rules, state));
@@ -67,22 +92,6 @@ const v$ = ref(useVuelidate(rules, state));
 .all-content {
   .sing-up {
     .form-style1 {
-      .email {
-        .invalid {
-          border: 1px solid red;
-        }
-        .text-helper {
-          font-size: 13px;
-          color: red;
-        }
-      }
-      .name {
-        input {
-          .invalid {
-            border: 1px solid red;
-          }
-        }
-      }
       .role {
         position: relative;
 

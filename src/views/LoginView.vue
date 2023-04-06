@@ -9,10 +9,10 @@
     .continue
       p.text2 Or continue with
     form.form-style1
-      .email.input-margin
+      .form-group.email.input-margin
         label Email Address
         input(placeholder="Type your email address")
-      .password.input-margin-6
+      .form-group.password.input-margin-6
         label Password
         input(placeholder="Type your password")
       a.link2(href="#") Forgot your password?
