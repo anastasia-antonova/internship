@@ -42,15 +42,16 @@
         )
         span.text-helper(v-if="v$.password.required.$invalid") Поле не должно быть пустим
         span.text-helper(v-else-if="v$.password.passwordRegex.$invalid") регех
-      .form-group.role.input-margin
+      .form-group.role.input-margin(
+        :class="{ invalid: v$.role.$dirty && v$.role.$invalid }"
+      )
         label User role {{ state.role }}
-        select(v-model="state.role")
-          option(value="1") 1
-          option(value="2") 2
-          option(value="3") 3
-          option(value="4") 4
-          span.text-helper(v-if="v$.email.required.$invalid") Поле не должно быть пустим
-    button.confirm-sing-up.button1(@click="asasfsaf()") Sign up
+        select(v-model="state.role", @input="v$.role.$touch()")
+          option(:value="Role.Admin") Admin
+          option(:value="Role.Guest") Guest
+
+        span.text-helper(v-if="v$.email.required.$invalid") Поле не должно быть пустим
+    button.confirm-sing-up.button1(@click.prevent="checkForm()") Sign up
     p.link1 Already have an account?
       a(href="#") Log in
 </template>
@@ -58,9 +59,11 @@
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
 import { useVuelidate } from "@vuelidate/core";
-import { required, email } from "@vuelidate/validators";
+import { email, required } from "@vuelidate/validators";
+import { Registration } from "@/types/interfaceRegistration";
+import { Role } from "@/constants/role";
 
-const state = reactive({
+const state: Registration = reactive({
   email: "",
   name: "",
   password: "",
@@ -84,6 +87,10 @@ const rules = {
   role: { required },
 };
 const v$ = ref(useVuelidate(rules, state));
+
+const checkForm = () => {
+  v$.value.$touch();
+};
 </script>
 
 <style scoped lang="scss">

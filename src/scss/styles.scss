@@ -157,6 +157,11 @@ body.no-scroll {
   line-height: 17px;
   color: var(--athens-gray);
 
+  &.disabled {
+    opacity: 50%;
+    cursor: not-allowed;
+  }
+
 
   @include media_mobile {
     min-height: 38px;

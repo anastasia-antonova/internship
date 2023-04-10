@@ -3,10 +3,6 @@ import { RouteRecordRaw } from "vue-router";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    redirect: "/Registration",
-  },
-  {
-    path: "/",
     name: "Login",
     component: () =>
       import(/* webpackChunkName: "login" */ "../views/LoginView.vue"),
